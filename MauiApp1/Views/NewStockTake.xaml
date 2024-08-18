@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="MauiApp1.Views.NewStockTake"
+             Title="Stock Take"
+             >
+    <Shell.TitleView>
+        <StackLayout >
+            <Button Text="Finish" Clicked="Button_Clicked" Margin="0, 15, 15, 10" HeightRequest="40" WidthRequest="100" HorizontalOptions="End"></Button>
+        </StackLayout>
+    </Shell.TitleView>
+    <ScrollView Margin="5, 40, 5, 40">
+        <ListView ItemsSource="{Binding mks, Mode=TwoWay}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="1*" />
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Column="0" 
+                                   Text="{Binding ItemName}" 
+                                   FontAttributes="Italic" />
+                            <Entry x:Name="entry"
+                                   Text="{Binding ItemNumber}"
+                                   BackgroundColor="WhiteSmoke"
+                                   Keyboard="Numeric"
+                                   Placeholder="0"
+                                   Grid.Column="1" 
+                                    />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+    </ScrollView>
+</ContentPage>

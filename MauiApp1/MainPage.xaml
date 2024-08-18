@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             x:Class="MauiApp1.MainPage">
+    <Shell.BackButtonBehavior>
+        <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
+
+    </Shell.BackButtonBehavior>
+    <StackLayout>
+        <Label Text="Van stock take"
+               FontSize="20"
+               FontAttributes="Bold"
+               HorizontalOptions="Center" />
+
+        <Label Text="1. Click stock tab below and fill in item amounts."
+               Margin="10, 30, 10, 30"
+           FontSize="15"
+           FontAttributes="Italic"
+           HorizontalOptions="StartAndExpand" />
+        <Button
+            x:Name="stockButton"
+            Text="Stock Take" 
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="stockTakeBtn_Clicked"
+            Margin="50, 25, 50, 25"
+            HorizontalOptions="Fill" />
+        <Label Text="2. Click scan tab below and and scan each meter barcode."
+               Margin="10, 30, 10, 30"
+           FontSize="15"
+           FontAttributes="Italic"
+           HorizontalOptions="StartAndExpand" />
+        <Button
+            x:Name="scanButton"
+            Text="Scan Barcodes" 
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="scanButton_Clicked"
+            Margin="50, 25, 50, 25"
+            HorizontalOptions="Fill" /> 
+        <Label Text="3. Click email tab below, check everthing is correct, click complete. An email will be sent to your superviser with an excel sheet of all you items."
+           FontSize="15"
+               Margin="10, 30, 10, 30"
+           FontAttributes="Italic"
+           HorizontalOptions="StartAndExpand" />
+        <Button
+            x:Name="emailButton"
+            Text="Send Email"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="emailButton_Clicked"
+            Margin="50, 25, 50, 25"
+            HorizontalOptions="Fill" />
+    </StackLayout>
+
+</ContentPage>

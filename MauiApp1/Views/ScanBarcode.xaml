@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.ScanBarcode"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             Title="ScanBarcode">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Label 
+            Text=""
+            x:Name="meterCount"
+            Grid.Row="0"            
+            FontSize="16"
+            FontAttributes="Italic"
+             />
+        <zxing:CameraBarcodeReaderView
+            x:Name="cameraBarcodeReaderView"     
+            Grid.Row="1"                
+            HorizontalOptions="Center"
+            BarcodesDetected="BarcodesDetected"
+            IsDetecting="True"/>
+        <Button 
+            Text="Scan again" 
+            Grid.Row="2"
+            WidthRequest="200"                
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            Clicked="Button_Clicked" />
+        <Button 
+            Text="Finish" 
+            Grid.Row="3"
+            WidthRequest="130"                            
+            VerticalOptions="Center"
+            Clicked="Button_Clicked_1" />     
+    </Grid>
+    
+</ContentPage>
