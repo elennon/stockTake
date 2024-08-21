@@ -62,18 +62,24 @@
 	  <None Remove="Resources\Images\info.png" />
 	  <None Remove="Resources\Images\monkey.png" />
 	  <None Remove="Resources\Images\pic.jpg" />
+	  <None Remove="Resources\Images\sttings.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="GemBox.Spreadsheet" Version="49.0.1799" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Mopups" Version="1.3.1" />
+		<PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
 		<PackageReference Include="ZXing.Net.Maui.Controls" Version="0.4.0" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Controls\FlyoutFooter.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Login.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\NewPage1.xaml">

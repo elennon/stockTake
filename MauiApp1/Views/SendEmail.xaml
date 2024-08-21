@@ -9,7 +9,8 @@
         </StackLayout>
     </Shell.TitleView>
     <ScrollView Margin="5, 40, 5, 40">
-        <ListView ItemsSource="{Binding mks, Mode=TwoWay}" >
+        
+        <ListView ItemsSource="{Binding mks, Mode=TwoWay}" Header="If you're happy the list below is correct, click send email">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
@@ -33,6 +34,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
+    
     </ScrollView>
 </ContentPage>

@@ -25,9 +25,9 @@ namespace MauiApp1.Models
         public List<Items> SeedItems()
         {
             List<Items> its = new List<Items>();
-            for (int i = 0; i < 20;i++) 
+            for (int i = 0; i < 10;i++) 
             {
-                its.Add(new Items("item number " + i.ToString(), 0));
+                its.Add(new Items("item number " + i.ToString(), 0, i));
             }
             return its; 
         }
@@ -35,11 +35,13 @@ namespace MauiApp1.Models
     }
     public class Items : INotifyPropertyChanged 
     {
-        public Items(string nme, int nmb) 
+        public Items(string nme, int nmb, int refNumber) 
         {
             ItemName = nme;
             ItemNumber = nmb;
+            RefNumber = refNumber;
         }
+        public int RefNumber { get; set; }
         public Items() { }
         private int _age;
         public string ItemName { get; set; }

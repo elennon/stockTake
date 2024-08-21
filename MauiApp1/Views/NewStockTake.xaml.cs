@@ -15,15 +15,15 @@ public partial class NewStockTake : ContentPage
 	{
 		InitializeComponent();
         
-        mks.Add(new Items("Meters", 0));
-        mks.Add(new Items("Low pressure regulators", 0));
-        mks.Add(new Items("High pressure regulators", 0));
-        mks.Add(new Items("Resessed doors", 0));
-        mks.Add(new Items("Surface boxes", 0));
-        foreach (var item in stockTake.SeedItems())
-        {
-            mks.Add(item);
-        }
+        mks.Add(new Items("Meters", 0, 0));
+        mks.Add(new Items("Low pressure regulators", 0, 1));
+        mks.Add(new Items("High pressure regulators", 0, 2));
+        mks.Add(new Items("Resessed doors", 0, 3));
+        mks.Add(new Items("Surface boxes", 0, 4));
+        //foreach (var item in stockTake.SeedItems())
+        //{
+        //    mks.Add(item);
+        //}
         
         //lst.ItemsSource = mks;
         BindingContext = this;

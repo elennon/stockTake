@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using MauiApp1.Views;
+using System.Windows.Input;
 
 namespace MauiApp1
 {
@@ -14,6 +15,7 @@ namespace MauiApp1
         void RegisterRoutes()
         {
             Routes.Add("mainPage", typeof(MainPage));
+            Routes.Add("login", typeof(Login));
             Routes.Add("newStockTake", typeof(Views.NewStockTake));
             Routes.Add("scanBarcode", typeof(Views.ScanBarcode));
             Routes.Add("sendEmail", typeof(Views.SendEmail));

@@ -8,11 +8,7 @@
 
     </Shell.BackButtonBehavior>
     <StackLayout>
-        <Label Text="Van stock take"
-               FontSize="20"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
+        
         <Label Text="1. Click stock tab below and fill in item amounts."
                Margin="10, 30, 10, 30"
            FontSize="15"

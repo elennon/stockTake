@@ -30,21 +30,14 @@
 
     
     <TabBar>
-        <Tab Title="Stock"
-            Icon="info.png">
+        <Tab Title="Account"
+            Icon="sttings.png">
             <ShellContent Title="Van stock take"
                          ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
-        <Tab Title="Stock"
-             Icon="help.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Views.NewStockTake}" />
-        </Tab>
-        <Tab Title="Scanner"
-             Icon="monkey.png">
-            <ShellContent Shell.TabBarIsVisible="false" ContentTemplate="{DataTemplate local:Views.ScanBarcode}" />
-        </Tab>
-        <Tab Title="Scanner"
-             Icon="monkey.png">
+        
+        <Tab Title=""
+             >
             <ShellContent Shell.TabBarIsVisible="false" ContentTemplate="{DataTemplate local:Views.SendEmail}" />
         </Tab>
     </TabBar>
