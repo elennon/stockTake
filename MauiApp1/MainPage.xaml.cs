@@ -73,6 +73,22 @@ namespace MauiApp1
                 await Shell.Current.GoToAsync("sendEmail", parms);
             });
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Dispatcher.DispatchAsync(async () =>
+            {
+                await Shell.Current.GoToAsync("userDetails");
+            });
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+            Dispatcher.DispatchAsync(async () =>
+            {
+                await Shell.Current.GoToAsync("userDetails");
+            });
+        }
     }
 
 }

@@ -9,9 +9,9 @@ namespace MauiApp1
         {
             InitializeComponent();
 
-            var Foo = UserSettings.IsLoggedIn;
+            var oo = UserSettings.IsLoggedIn;
 
-            if (Foo == Boolean.FalseString)
+            if (oo == Boolean.FalseString)
             {
                 MainPage = new AppShell();
                 GoToLogin();

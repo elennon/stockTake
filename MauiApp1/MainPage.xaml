@@ -5,8 +5,12 @@
              x:Class="MauiApp1.MainPage">
     <Shell.BackButtonBehavior>
         <BackButtonBehavior IsEnabled="False" IsVisible="False"/>
-
     </Shell.BackButtonBehavior>
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="User Details"
+                 Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
     <StackLayout>
         
         <Label Text="1. Click stock tab below and fill in item amounts."

@@ -7,6 +7,8 @@ using MauiApp1.Helpers;
 using System.Windows.Input;
 using MauiApp1.Views;
 using System.Text.Json;
+using System.Text.RegularExpressions;
+using Mopups.Services;
 
 namespace MauiApp1.ViewModels
 {
@@ -24,28 +26,44 @@ namespace MauiApp1.ViewModels
         }
         async void UpdateUserInfo()
         {
-            var isfirst = GetPw("FirstTimeLogin").Result;
-            if (isfirst == null)
+            //var isfirst = GetPw("FirstTimeLogin").Result;
+            if (UserSettings.IsFirstTime)
             {
-                SetPw("Password", UserSettings.Password).Wait();
-                SetPw("FirstTimeLogin", Boolean.FalseString).Wait();
+                UserSettings.IsFirstTime = false;
+                
+                //SetPw("Password", UserSettings.Password).Wait();
+                //SetPw("FirstTimeLogin", Boolean.FalseString).Wait();
             }
-            var pw = GetPw("Password").Result;
-            if (pw != UserSettings.Password)
+            if (!ValidateEmail(UserSettings.Email))
             {
-                Login.label.Text = "wrong password";
+                await MopupService.Instance.PushAsync(new EmailPop());
+                return;
             }
-            else
-            {
-                Login.label.Text = "";
-                //await _navigation.PushAsync(new ProjectsPage()); 
-                //await Shell.Current.GoToAsync($"{nameof(CloseUp)}?{nameof(CloseUp.ID)}={"hhh"}");
-                //await Shell.Current.Navigation.PopToRootAsync();
-                //await Shell.Current.GoToAsync($"{nameof(ProjectsPage)}");
-                //await .Navigation.PushModalAsync(new ProjectsPage());PopToRootAsync
-                await Shell.Current.GoToAsync("mainPage");
-            }
+            await Shell.Current.GoToAsync("mainPage");
+            //var pw = GetPw("Password").Result;
+            //if (pw != UserSettings.Password)
+            //{
+            //    Login.label.Text = "wrong password";
+            //}
+            //else
+            //{
+            //    Login.label.Text = "";
+            //    //await _navigation.PushAsync(new ProjectsPage()); 
+            //    //await Shell.Current.GoToAsync($"{nameof(CloseUp)}?{nameof(CloseUp.ID)}={"hhh"}");
+            //    //await Shell.Current.Navigation.PopToRootAsync();
+            //    //await Shell.Current.GoToAsync($"{nameof(ProjectsPage)}");
+            //    //await .Navigation.PushModalAsync(new ProjectsPage());PopToRootAsync
+            //    await Shell.Current.GoToAsync("mainPage");
+            //}
 
+        }
+        Regex EmailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+        public bool ValidateEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            return EmailRegex.IsMatch(email);
         }
         private async Task<string> GetPw(string key)
         {

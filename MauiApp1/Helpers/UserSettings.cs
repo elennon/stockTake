@@ -38,11 +38,16 @@ namespace MauiApp1.Helpers
             get => AppSettings.GetValueOrDefault(nameof(Email), string.Empty);
             set => AppSettings.AddOrUpdateValue(nameof(Email), value);
         }
-        public static string Password { get; set; }
-        //{
-        //    // => AppSettings.GetValueOrDefault(nameof(Password), string.Empty);
-        //    //set => AppSettings.AddOrUpdateValue(nameof(Password), value);
-        //}
+        public static string Password //{ get; set; }
+        {
+            get => AppSettings.GetValueOrDefault(nameof(Password), string.Empty);
+            set => AppSettings.AddOrUpdateValue(nameof(Password), value);
+        }
+        public static bool IsFirstTime //{ get; set; }
+        {
+            get => AppSettings.GetValueOrDefault(nameof(IsFirstTime), true);
+            set => AppSettings.AddOrUpdateValue(nameof(IsFirstTime), value);
+        }
 
         public static string WrongPassword { get; set; }
 

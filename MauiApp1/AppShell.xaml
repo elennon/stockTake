@@ -30,15 +30,15 @@
 
     
     <TabBar>
-        <Tab Title="Account"
-            Icon="sttings.png">
+        <Tab Title="Log out"
+            Icon="monkey.png">
             <ShellContent Title="Van stock take"
                          ContentTemplate="{DataTemplate local:MainPage}" />
         </Tab>
         
         <Tab Title=""
              >
-            <ShellContent Shell.TabBarIsVisible="false" ContentTemplate="{DataTemplate local:Views.SendEmail}" />
+            
         </Tab>
     </TabBar>
 

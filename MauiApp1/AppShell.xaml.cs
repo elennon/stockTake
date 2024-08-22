@@ -19,6 +19,7 @@ namespace MauiApp1
             Routes.Add("newStockTake", typeof(Views.NewStockTake));
             Routes.Add("scanBarcode", typeof(Views.ScanBarcode));
             Routes.Add("sendEmail", typeof(Views.SendEmail));
+            Routes.Add("userDetails", typeof(Views.UserDetails));
 
             foreach (var item in Routes)
             {

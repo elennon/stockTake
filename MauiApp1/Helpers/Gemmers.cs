@@ -19,7 +19,7 @@ namespace MauiApp1.Helpers
             {
                 SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
 
-                var fileName = $"feet.xlsx";
+                var fileName = UserSettings.UserName + $".xlsx";
                 Environment.SetEnvironmentVariable("MONO_URI_DOTNETRELATIVEORABSOLUTE", "true");
                 var filePath = Path.Combine(AppFolder, fileName);
                 var workbook = new ExcelFile();
@@ -48,7 +48,7 @@ namespace MauiApp1.Helpers
             var range = worksheet.Cells.GetSubrange("A1:G1");
             range.Merged = true;
 
-            range.Value = " - Dayworks";
+            range.Value = "Stock Take";
             range.Style.HorizontalAlignment = HorizontalAlignmentStyle.Center;
             //range.Style.Font.Size = 20;
             worksheet.Cells["A1"].Style.FillPattern.SetPattern(FillPatternStyle.Solid, SpreadsheetColor.FromName(ColorName.Accent5Lighter60Pct),

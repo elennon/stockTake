@@ -13,6 +13,7 @@ public partial class SendEmail : ContentPage
     private Gemmers gemmer;
     private string AppFolder => Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
     public ObservableCollection<Items> mks { get; set; } = new ObservableCollection<Items>();
+    
     public StockTake StockTake
     {
         get => stockTake;
@@ -41,16 +42,17 @@ public partial class SendEmail : ContentPage
 
     private void Button_Clicked(object sender, EventArgs e)
     {
+        string bdy = "Dear " + UserSettings.SuperV + ", Please find attached an excel spredsheet of my van stock. Thanks, " + UserSettings.UserName;
         StockTake stg = new StockTake();
         stg.items = new List<Items>();
         stg.barecodeNumber = new List<string>();
         stg.items.AddRange(mks);
         List<string> toAddress = new List<string>();
-        toAddress.Add("elennon@outlook.ie");
+        toAddress.Add(UserSettings.Email);
         var exfile = gemmer.GetGemmer(StockTake);
         Dispatcher.DispatchAsync(async () =>
         {
-            await SendEmailer("feet", "poo", toAddress, exfile);
+            await SendEmailer(UserSettings.UserName + " stock take", bdy, toAddress, exfile);
         });
     }
     public async Task SendEmailer(string subject, string body, List<string> recipients, string filename)

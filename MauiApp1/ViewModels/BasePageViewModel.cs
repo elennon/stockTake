@@ -60,6 +60,15 @@ namespace MauiApp1.ViewModels
                 NotifyPropertyChanged("Password");
             }
         }
+        public bool IsFirstTime
+        {
+            get => UserSettings.IsFirstTime;
+            set
+            {
+                UserSettings.IsFirstTime = value;
+                NotifyPropertyChanged("IsFirstTime");
+            }
+        }
         #region INotifyPropertyChanged  
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
